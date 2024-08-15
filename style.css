@@ -79,4 +79,11 @@ img{
   padding: 4px;
   text-align: center;
 }
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 100dvh;
+  width: 100%;
+}
 }
