@@ -1,7 +1,7 @@
 let tableData = '';
 const table = document.querySelector('table');
 const selectElement = document.querySelector('select');
-
+const myData  = document.querySelector('.myData');
 
 async function eplStandings(selectedText) {
   const url = `https://www.thesportsdb.com/api/v1/json/3/lookuptable.php?l=4328&s=${selectedText}`;
@@ -16,7 +16,7 @@ async function eplStandings(selectedText) {
     console.log(data)
     for (let i = 0; i < 20; i++) {
       tableData = `
-      <tr>
+      <tr class="myData">
         <td>${data.table[i].intRank}</td>
         <td class="img"><img src="${(data.table[i].strBadge)}"/>  ${data.table[i].strTeam}</td>
         <td>${data.table[i].intPlayed}</td>
@@ -29,6 +29,7 @@ async function eplStandings(selectedText) {
         <td>${data.table[i].intGoalDifference}</td>
       </tr>`;
       table.insertAdjacentHTML("beforeend", tableData)
+      //table.innerHTML = tableData;
     }
     
   } catch (error) {
@@ -39,6 +40,6 @@ async function eplStandings(selectedText) {
 selectElement.addEventListener("change", function(event) {
   const selectedText = selectElement.options[selectElement.selectedIndex]
     .text;
+    table.innerHTML = "";
     eplStandings(selectedText);
-    console.log("Selected text:", selectedText);
 });
