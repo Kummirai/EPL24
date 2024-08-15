@@ -7,13 +7,29 @@
 
 .container{
   display: flex;
-  align-items: flex-start;
-  justify-content: center;
+  align-items:  center;
+  flex-direction: column;
   height: 100vh;
+}
+
+.select{
+  display: flex;
+  flex-direction: column;
+  margin: 18px 0 0 0;
+}
+
+label{
+  padding: 10px;
+}
+
+option{
+  font-size: 18px;
+  padding: 8px;
 }
 table{
   width: 80%;
   border-collapse: collapse;
+  margin-top: 18px;
 }
 
 th, td{

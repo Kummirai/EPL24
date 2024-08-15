@@ -1,8 +1,10 @@
 let tableData = '';
 const table = document.querySelector('table');
+const selectElement = document.querySelector('select');
 
-async function eplStandings() {
-  const url = 'https://www.thesportsdb.com/api/v1/json/3/lookuptable.php?l=4328&s=2023-2024';
+
+async function eplStandings(selectedText) {
+  const url = `https://www.thesportsdb.com/api/v1/json/3/lookuptable.php?l=4328&s=${selectedText}`;
   
   try {
     const response = await
@@ -13,7 +15,6 @@ async function eplStandings() {
     response.json();
     console.log(data)
     for (let i = 0; i < 20; i++) {
-      console.log(i)
       tableData = `
       <tr>
         <td>${data.table[i].intRank}</td>
@@ -35,4 +36,9 @@ async function eplStandings() {
   }
 }
 
-eplStandings();
+selectElement.addEventListener("change", function(event) {
+  const selectedText = selectElement.options[selectElement.selectedIndex]
+    .text;
+    eplStandings(selectedText);
+    console.log("Selected text:", selectedText);
+});
