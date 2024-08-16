@@ -193,4 +193,11 @@ label{
   height: 100dvh;
   width: 100%;
 }
+card {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 95%;
+  font-size: 11px
+}
 }
