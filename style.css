@@ -131,8 +131,8 @@ img{
 .select{
   display: flex;
   background-color: aliceblue;
-  padding: 30px;
-  width: 80%;
+  padding: 20px 30px 30px 30px;
+  width: 95%;
 }
 
 select {
