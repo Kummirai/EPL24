@@ -114,6 +114,10 @@ label{
   font-weight: bold;
 }
 
+.pos-pts{
+  font-weight: 700;
+}
+
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
     th, td{
       font-size: 11px;

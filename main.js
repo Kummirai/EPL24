@@ -31,13 +31,13 @@ async function eplStandings(selectedText) {
     for (let i = 0; i < 20; i++) {
       tableData = `
       <tr class="myData">
-        <td>${data.table[i].intRank}</td>
+        <td class="pos-pts">${data.table[i].intRank}</td>
         <td class="img"><img src="${(data.table[i].strBadge)}"/>  ${data.table[i].strTeam}</td>
         <td>${data.table[i].intPlayed}</td>
         <td>${data.table[i].intWin}</td>
         <td>${data.table[i].intDraw}</td>
         <td>${data.table[i].intLoss}</td>
-        <td>${data.table[i].intPoints}</td>
+        <td class="pos-pts">${data.table[i].intPoints}</td>
         <td>${data.table[i].intGoalsFor}</td>
         <td>${data.table[i].intGoalsAgainst}</td>
         <td>${data.table[i].intGoalDifference}</td>
