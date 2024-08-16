@@ -241,4 +241,20 @@ label{
 .date, .time{
   font-size: 12px;
 }
+.inner-container{
+  width: 95%;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  padding: 10px;
+}
+.card {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background-color: aliceblue;
+  padding: 18px;
+  font-size: 15px;
+  border-radius: 8px;
+}
 }
