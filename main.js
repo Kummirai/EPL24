@@ -1,11 +1,11 @@
 let tableData = '';
 const table = document.querySelector('table');
 const selectElement = document.querySelector('select');
-const myData  = document.querySelector('.myData');
+const container  = document.querySelector('.container');
 
 async function eplStandings(selectedText) {
   const url = `https://www.thesportsdb.com/api/v1/json/3/lookuptable.php?l=4328&s=${selectedText}`;
-  
+  console.log(selectedText)
   try {
     const response = await
     fetch(url);
@@ -14,6 +14,20 @@ async function eplStandings(selectedText) {
     } const data = await
     response.json();
     console.log(data)
+    const headers = `
+    <tr>
+    <th></th>
+    <th>Club Name</td>
+    <th>MP</th>
+    <th>W</th>
+    <th>D</th>
+    <th>L</th>
+    <th>Pts</th>
+    <th>GF</th>
+    <th>GA</th>
+    <th>GD</th>
+  </tr>`;
+  table.insertAdjacentHTML("afterbegin", headers)
     for (let i = 0; i < 20; i++) {
       tableData = `
       <tr class="myData">
@@ -33,7 +47,7 @@ async function eplStandings(selectedText) {
     }
     
   } catch (error) {
-    console.error('fetch error:', error)
+    console.error('eplStandings error:', error)
   }
 }
 
@@ -43,3 +57,5 @@ selectElement.addEventListener("change", function(event) {
     table.innerHTML = "";
     eplStandings(selectedText);
 });
+
+eplStandings("2024-2025")
