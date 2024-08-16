@@ -5,7 +5,6 @@ const container  = document.querySelector('.container');
 
 async function eplStandings(selectedText) {
   const url = `https://www.thesportsdb.com/api/v1/json/3/lookuptable.php?l=4328&s=${selectedText}`;
-  console.log(selectedText)
   try {
     const response = await
     fetch(url);
@@ -13,7 +12,6 @@ async function eplStandings(selectedText) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     } const data = await
     response.json();
-    console.log(data)
     const headers = `
     <tr>
     <th></th>
