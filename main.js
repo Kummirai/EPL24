@@ -62,50 +62,50 @@ selectElement.addEventListener("change", function(event) {
 
 eplStandings("2024-2025")
 
-function  todayFixture() {
- const fix24 = fetch('https://www.thesportsdb.com/api/v1/json/3/eventsround.php?id=4328&r=1&s=2024-2025')
+function  todayFixture(selectedValue) {
+ const fix24 = fetch(`https://www.thesportsdb.com/api/v1/json/3/eventsround.php?id=4328&r=${selectedValue}&s=2024-2025`)
   .then( response => {
     console.log(response);
     return response.json();
   })
   .then(data => {
-  
     console.log(data);
-      html = `
+  
+    data["events"].forEach((fixture) => {
+      html += `
       <div class="inner-container">
-        <div class="event-time">
-            <p class="time">${(data.events[0].strTime).slice(0, 5)}hrs</p>
-            <!--<p>${data.events[0].dateEvent}</p>-->
-        </div>
+        <p class="item1">${fixture.dateEvent}</p>
+        <p class="item2">${(fixture.strTime).slice(0, 5)}</p>
         <div class="card">
            <div class="team-info">
-              <img class="clubLogo" src="${data.events[0].strHomeTeamBadge}">
-              <h4>${data.events[0].strHomeTeam}</h4>
+              <img class="clubLogo" src="${fixture.strHomeTeamBadge}">
+              <h4>${fixture.strHomeTeam}</h4>
             </div>
             <div class="scoreLine">
-               <p>${data.events[0].intHomeScore}</p><p>-</p><p>${data.events[0].intAwayScore}</p>
+               <h4> ${fixture.intHomeScore}  -  ${fixture.intAwayScore}</h4>
             </div>
             <div class="team-info">
-                <img class="clubLogo" src="${data.events[0].strAwayTeamBadge}">
-                <h4>${data.events[0].strAwayTeam}</h4>
+                <img class="clubLogo" src="${fixture.strAwayTeamBadge}">
+                <h4>${fixture.strAwayTeam}</h4>
            </div>
          </div>
-         <!--<p><a class="youtube-link" href="${data.events[0].strVideo}">Highlights</a></p>-->
-         <div class="event-time">
-            <!--<p>${(data.events[0].strTime).slice(0, 5)}hrs</p>-->
-            <p class="date">${data.events[0].dateEvent}</p>
-        </div>
+        <!-- <p><a class="youtube-link" href="${fixture.strVideo}">Highlights</a></p>-->
       </div>
-      `;
-      
-      if(data.events[0].intAwayScore === "" | data.events[0].intHomeScore === ""){
-        awayScore.innerHTML = "0";
-      } 
-      
-      fixtureContainer.innerHTML = html;
-    console.log(html)
-
+      `
+    });
+      fixtureContainer.insertAdjacentHTML("beforebegin", html);
     });
 }
 
-todayFixture();
+
+
+const selectMatchday = document.querySelector('.matchday');
+selectElement.addEventListener('change', () => {
+  const selectedIndex = selectElement.selectedIndex;
+  const selectedOption = selectElement.options[selectedIndex];
+  const selectedValue = selectedOption.value;
+  
+  todayFixture(selectedValue)
+});
+
+//todayFixture("1");
