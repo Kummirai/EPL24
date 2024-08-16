@@ -79,14 +79,14 @@ function  todayFixture(selectedValue) {
         <div class="card">
            <div class="team-info">
               <img class="clubLogo" src="${fixture.strHomeTeamBadge}">
-              <h4>${fixture.strHomeTeam}</h4>
+              <p>${fixture.strHomeTeam}</p>
             </div>
             <div class="scoreLine">
-               <h4> ${fixture.intHomeScore}  -  ${fixture.intAwayScore}</h4>
+               <p> ${fixture.intHomeScore}  -  ${fixture.intAwayScore}</p>
             </div>
             <div class="team-info">
                 <img class="clubLogo" src="${fixture.strAwayTeamBadge}">
-                <h4>${fixture.strAwayTeam}</h4>
+                <p>${fixture.strAwayTeam}</p>
            </div>
          </div>
         <!-- <p><a class="youtube-link" href="${fixture.strVideo}">Highlights</a></p>-->
