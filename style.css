@@ -29,7 +29,7 @@
 
 .item1{
   grid-column-start: 3;
-  grid-column-end: ;
+  grid-column-end: 4;
   text-align: right;
   padding: 2px 10px;
 }
@@ -255,5 +255,19 @@ label{
   padding: 18px;
   font-size: 15px;
   border-radius: 8px;
+}
+.item1 {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  text-align: right;
+  padding: 2px 10px;
+}
+
+.item2 {
+  grid-column-start: 4;
+  grid-column-end: 7;
+  text-align: left;
+  padding: 2px 10px;
+  font-weight: bold;
 }
 }
