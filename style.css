@@ -193,11 +193,19 @@ label{
   height: 100dvh;
   width: 100%;
 }
-card {
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  font-size: 11px
+}
+
+.fixture-container {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   width: 95%;
-  font-size: 11px
+  border: 1px solid aliceblue;
 }
 }
