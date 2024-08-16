@@ -83,7 +83,7 @@ function  todayFixture() {
               <h4>${data.events[0].strHomeTeam}</h4>
             </div>
             <div class="scoreLine">
-               <!--<h4><span class="home-score">${data.events[0].intHomeScore}</span>--><p>-</p><!-- <span class="away-score">${data.events[0].intAwayScore}</span></h4>-->
+               <p>${data.events[0].intHomeScore}</p><p>-</p><p>${data.events[0].intAwayScore}</p>
             </div>
             <div class="team-info">
                 <img class="clubLogo" src="${data.events[0].strAwayTeamBadge}">
