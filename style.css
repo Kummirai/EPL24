@@ -253,7 +253,7 @@ label{
   grid-template-columns: repeat(3, 1fr);
   background-color: aliceblue;
   padding: 18px;
-  font-size: 15px;
+  font-size: 12px;
   border-radius: 8px;
 }
 .item1 {
