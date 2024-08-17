@@ -102,3 +102,10 @@ selectMatchday.addEventListener('change', () => {
   todayFixture(selectMatchday.value)
   console.log(selectMatchday.value)
 });
+
+const league = document.getElementById('league');
+league.addEventListener('change', () => {
+  fixtureContainer.style.display = "none";
+  todayFixture(selectM.value)
+  console.log(selectMatchday.value)
+});
