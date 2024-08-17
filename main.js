@@ -1,7 +1,7 @@
 let tableData = '';
 let html = '';
 const table = document.querySelector('table');
-const selectElement = document.querySelector('select');
+const selectElement = document.getElementById('standings');
 const container  = document.querySelector('.container');
 const homeScore  = document.querySelector('.home-score');
 const awayScore  = document.querySelector('.away-score');
@@ -54,8 +54,7 @@ async function eplStandings(selectedText) {
 }
 
 selectElement.addEventListener("change", function(event) {
-  const selectedText = selectElement.options[selectElement.selectedIndex]
-    .text;
+  const selectedText = selectElement.options[selectElement.selectedIndex].text;
     table.innerHTML = "";
     eplStandings(selectedText);
 });
@@ -65,11 +64,9 @@ eplStandings("2024-2025")
 function  todayFixture(selectedValue) {
  const fix24 = fetch(`https://www.thesportsdb.com/api/v1/json/3/eventsround.php?id=4328&r=${selectedValue}&s=2024-2025`)
   .then( response => {
-    console.log(response);
     return response.json();
   })
   .then(data => {
-    console.log(data);
   
     data["events"].forEach((fixture) => {
       html += `
@@ -84,7 +81,7 @@ function  todayFixture(selectedValue) {
             <div class="scoreLine">
                <p> ${fixture.intHomeScore}  -  ${fixture.intAwayScore}</p>
             </div>
-            <div class="team-info">
+            <div class="team-info awa">
                 <img class="clubLogo" src="${fixture.strAwayTeamBadge}">
                 <p>${fixture.strAwayTeam}</p>
            </div>
@@ -108,4 +105,4 @@ selectElement.addEventListener('change', () => {
   todayFixture(selectedValue)
 });
 
-//todayFixture("1");
+todayFixture("1");

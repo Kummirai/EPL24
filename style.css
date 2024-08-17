@@ -23,7 +23,6 @@
 .inner-container{
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
   padding: 10px;
 }
 
@@ -70,7 +69,7 @@ font-weight: bold;
   grid-column-start: 2;
   grid-column-end: 6;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 2fr 1fr 2fr;
   background-color: aliceblue;
   padding: 18px;
   font-size: 15px;
@@ -81,7 +80,6 @@ font-weight: bold;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  width: 100px;
   background-color: #181F62;
   padding: 4px;
   border-radius: 4px;
