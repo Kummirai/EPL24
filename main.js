@@ -96,13 +96,9 @@ function  todayFixture(selectedValue) {
 
 
 
-const selectMatchday = document.querySelector('.matchday');
-selectElement.addEventListener('change', () => {
-  const selectedIndex = selectElement.selectedIndex;
-  const selectedOption = selectElement.options[selectedIndex];
-  const selectedValue = selectedOption.value;
-  
-  todayFixture(selectedValue)
+const selectMatchday = document.getElementById('matchday');
+selectMatchday.addEventListener('change', () => {
+  fixtureContainer.style.display = "none";
+  todayFixture(selectMatchday.value)
+  console.log(selectMatchday.value)
 });
-
-todayFixture("1");
