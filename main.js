@@ -1,5 +1,5 @@
 let tableData = '';
-let html = '';
+let html = "";
 const table = document.querySelector('table');
 const selectElement = document.getElementById('standings');
 const container  = document.querySelector('.container');
@@ -67,11 +67,11 @@ function  todayFixture(selectedValue) {
     return response.json();
   })
   .then(data => {
-  
+    html = '';
     data["events"].forEach((fixture) => {
       html += `
       <div class="inner-container">
-        <p class="item1">${fixture.dateEvent}</p>
+        <!--<p class="item1">${fixture.dateEvent}</p>-->
         <p class="item2">${(fixture.strTime).slice(0, 5)}</p>
         <div class="card">
            <div class="team-info">
@@ -81,15 +81,34 @@ function  todayFixture(selectedValue) {
             <div class="scoreLine">
                <p> ${fixture.intHomeScore}  -  ${fixture.intAwayScore}</p>
             </div>
-            <div class="team-info awa">
+            <div class="team-info away">
                 <img class="clubLogo" src="${fixture.strAwayTeamBadge}">
                 <p>${fixture.strAwayTeam}</p>
            </div>
          </div>
-        <!-- <p><a class="youtube-link" href="${fixture.strVideo}">Highlights</a></p>-->
-      </div>
-      `
-    });
-      fixtureContainer.insertAdjacentHTML("beforebegin", html);
-    });
+        <p><a class="youtube-link" href="${fixture.strVideo}">Highlights</a></p>
+      </div>`});
+      fixtureContainer.innerHTML = html;
+  });
+  
 }
+
+const selectMatchday = document.getElementById('matchday');
+selectMatchday.addEventListener('change', () => {
+  todayFixture(selectMatchday.value)
+  console.log(selectMatchday.value)
+});
+
+const league = document.getElementById('league');
+league.addEventListener('change', () => {
+  fixtureContainer.style.display = "none";
+  todayFixture(selectM.value)
+  console.log(selectMatchday.value)
+});
+
+/*setInterval(() => {
+  todayFixture("1")
+  console.log("i ran")
+}, 120000);
+
+console.log("i am running")*/
