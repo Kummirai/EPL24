@@ -93,19 +93,3 @@ function  todayFixture(selectedValue) {
       fixtureContainer.insertAdjacentHTML("beforebegin", html);
     });
 }
-
-
-
-const selectMatchday = document.getElementById('matchday');
-selectMatchday.addEventListener('change', () => {
-  fixtureContainer.style.display = "none";
-  todayFixture(selectMatchday.value)
-  console.log(selectMatchday.value)
-});
-
-const league = document.getElementById('league');
-league.addEventListener('change', () => {
-  fixtureContainer.style.display = "none";
-  todayFixture(selectM.value)
-  console.log(selectMatchday.value)
-});
