@@ -1,14 +1,20 @@
 let tableData = '';
 let html = "";
 const table = document.querySelector('table');
+const league = document.getElementById('league');
 const selectElement = document.getElementById('standings');
+const leagueId = document.getElementById('leagueMatches');
+const selectMatchday = document.getElementById('matchday');
 const container  = document.querySelector('.container');
 const homeScore  = document.querySelector('.home-score');
 const awayScore  = document.querySelector('.away-score');
 const fixtureContainer  = document.querySelector('.fixture-container');
 
-async function eplStandings(selectedText) {
-  const url = `https://www.thesportsdb.com/api/v1/json/3/lookuptable.php?l=4328&s=${selectedText}`;
+async function eplStandings() {
+  const leagueValue = league.value;
+  const leagueSeason  = selectElement.options[selectElement.selectedIndex].text;
+  
+  const url = `https://www.thesportsdb.com/api/v1/json/3/lookuptable.php?l=${league.value}&s=${leagueSeason}`;
   try {
     const response = await
     fetch(url);
@@ -16,6 +22,7 @@ async function eplStandings(selectedText) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     } const data = await
     response.json();
+    table.innerHTML ='';
     const headers = `
     <tr>
     <th></th>
@@ -53,16 +60,11 @@ async function eplStandings(selectedText) {
   }
 }
 
-selectElement.addEventListener("change", function(event) {
-  const selectedText = selectElement.options[selectElement.selectedIndex].text;
-    table.innerHTML = "";
-    eplStandings(selectedText);
-});
-
-eplStandings("2024-2025")
-
-function  todayFixture(selectedValue) {
- const fix24 = fetch(`https://www.thesportsdb.com/api/v1/json/3/eventsround.php?id=4328&r=${selectedValue}&s=2024-2025`)
+async function todayFixture() {
+  const matchDay = selectMatchday.value;
+  const leagueMatches = leagueId.value;
+  
+  const fix24 = fetch(`https://www.thesportsdb.com/api/v1/json/3/eventsround.php?id=${leagueMatches}&r=${matchDay}&s=2024-2025`)
   .then( response => {
     return response.json();
   })
@@ -100,22 +102,10 @@ function  todayFixture(selectedValue) {
   
 }
 
-const selectMatchday = document.getElementById('matchday');
-selectMatchday.addEventListener('change', () => {
-  todayFixture(selectMatchday.value)
-  console.log(selectMatchday.value)
-});
+league.addEventListener('change', eplStandings);
+selectElement.addEventListener('change', eplStandings);
 
-const league = document.getElementById('league');
-league.addEventListener('change', () => {
-  fixtureContainer.style.display = "none";
-  todayFixture(selectM.value)
-  console.log(selectMatchday.value)
-});
+eplStandings("2024-2025")
 
-/*setInterval(() => {
-  todayFixture("1")
-  console.log("i ran")
-}, 120000);
-
-console.log("i am running")*/
+leagueId.addEventListener('change', todayFixture);
+selectMatchday.addEventListener('change', todayFixture);
