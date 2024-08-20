@@ -4,99 +4,112 @@
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
 }
-
-.container{
-  display: flex;
-  align-items:  center;
-  flex-direction: column;
-  min-height: fit-content;
+img{
+      width: 32px;
+      height: auto;
+      object-fit: contain;
+    }
+    
+    .web-container{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 100%;
+    }
+    .outer-container{
+      padding: 10px 20px;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      margin: auto;
+    }
+    
+    .outer-container h1{
+     color: #AC1919;
+     font-size: 32px;
+    }
+    
+    .outer-container h3{
+      align-self: center;
+      color: #B92828;
+    }
+    
+    .logo{
+      display: flex;
+      align-items: center;
+      background-color: ghostwhite;
+      border-radius: 8px;
+    }
+    
+    .logo img{
+      margin: 0 10px;
+      width: 40px;
+    }
+    
+  
+    .container{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 8px;
+      background-color: ghostwhite;
+      height: 80px;
+      width: 100%;
+    }
+    
+    p{
+      font-size: 14px;
+      color: #181F62;
+    }
+    
+    .scoreLine{
+      display: flex;
+      width: 20%;
+      justify-content: space-around;
+      background-color: #181F62;
+      align-items: center;
+      border-radius: 5px;
+      color: white;
+      height: 60%;
+    }
+    
+    .scoreLine p{
+      font-weight: 700;
+      font-size: 18px;
+      color: ghostwhite;
+    }
+    
+    .awayTeam{
+      /*background-color: seagreen;*/
+      display: flex;
+      width: 50%;
+      justify-content: flex-start;
+    }
+    
+    .homeTeam{
+      /*background-color: seagreen;*/
+      display: flex;
+      width: 50%;
+      justify-content: flex-end;
+    }
+    
+    
+    .homeTeam img{
+      margin: 0 28px;
+    }
+    
+    .awayTeam img {
+      margin: 0 28px;
 }
 
-.fixture-container{
-  display: flex;
-  width: 100%;
-  align-items: center;
-  flex-direction: column;
-  /*justify-content: space-evenly;*/
-  /*border: 1px solid aliceblue;*/
+.results{
+  color: #373B66;
 }
 
-.inner-container{
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  padding: 10px;
-  border: 1px solid aliceblue;
-  margin: 0 0 10px 0;
-  border-radius: 4px;
-  height: fit-content;
+.results .scoreLine{
+  background-color: #B92828;
 }
 
-.matches{
-  margin-bottom: 10px;
-}
-.inner-container a{
-  text-decoration: none;
-  padding: 4px;
-  background-color: #181f62;
-  color: aliceblue;
-  margin-top: 8px;
-}
-
-.event-time{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 10px 0;
-}
-
-.time{
-  border: 1px solid #181f62;
-  color: #181f62;
-  padding: 5px 14px;
-  border-radius: 5px;
-  font-weight: 700;
-}
-
-.date{
-  background-color: aliceblue;
-  color: #181F62;
-  padding: 5px 14px;
-  border-radius: 0;
-  font-weight: 700;
-}
-.card{
-  grid-column-start: 2;
-  grid-column-end: 6;
-  display: grid;
-  grid-template-columns: 2fr 1fr 2fr;
-  background-color: aliceblue;
-  padding: 18px;
-  font-size: 15px;
-  border-radius: 8px;
-}
-
-.scoreLine{
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  background-color: #181F62;
-  padding: 4px;
-  border-radius: 4px;
-  color: aliceblue;
-  margin-left: 10px;
-}
-
-.card img{
-   width: 24px;
-   height: auto;
-}
-
-.team-info{
-  display: flex;
-  align-items: center;
-}
 .select{
   display: flex;
   flex-direction: column;
@@ -115,7 +128,8 @@ table{
   width: 95%;
   border-collapse: separate;
   border-spacing: 0 5px;
-  margin-top: 18px;
+  margin: auto;
+  margin-top: 10px;
   
 }
 
@@ -127,7 +141,7 @@ th, td{
 }
 
 tr>td{
-  background-color: aliceblue;
+  background-color: ghostwhite;
   color: #181F62;
   
 }
@@ -139,7 +153,7 @@ td{
 
 th{
   background-color: #181F62;
-  color: aliceblue;
+  color: ghostwhite;
 }
 
 tr:nth-child(even){
@@ -158,7 +172,7 @@ img{
 }
 .select{
   display: flex;
-  background-color: aliceblue;
+  background-color: ghostwhite;
   padding: 20px 30px 30px 30px;
   width: 95%;
 }

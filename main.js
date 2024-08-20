@@ -69,25 +69,32 @@ function  todayFixture(selectedValue) {
   .then(data => {
     html = '';
     data["events"].forEach((fixture) => {
+      if(fixture.intHomeScore === null){
+        fixture.intHomeScore = "";
+      };
+      
+      if (fixture.intAwayScore === null) {
+        fixture.intAwayScore = ""
+      }
       html += `
-      <div class="inner-container">
-        <!--<p class="item1">${fixture.dateEvent}</p>-->
-        <p class="item2">${(fixture.strTime).slice(0, 5)}</p>
-        <div class="card">
-           <div class="team-info">
-              <img class="clubLogo" src="${fixture.strHomeTeamBadge}">
-              <p>${fixture.strHomeTeam}</p>
-            </div>
-            <div class="scoreLine">
-               <p> ${fixture.intHomeScore}  -  ${fixture.intAwayScore}</p>
-            </div>
-            <div class="team-info away">
-                <img class="clubLogo" src="${fixture.strAwayTeamBadge}">
-                <p>${fixture.strAwayTeam}</p>
-           </div>
-         </div>
-        <p><a class="youtube-link" href="${fixture.strVideo}">Highlights</a></p>
-      </div>`});
+      <div class='outer-container'>
+    <div class="container">
+      <div class="homeTeam team">
+        <p class="teamName">${fixture.strHomeTeam}</p>
+        <img src="${fixture.strHomeTeamBadge}" alt="">
+      </div>
+      <div class="scoreLine">
+        <p class="homeScore">${fixture.intHomeScore}</p>
+        <p class="symbol">-</p>
+        <p class="awayScore">${fixture.intAwayScore}</p>
+      </div>
+      <div class="awayTeam team">
+        <img src="${fixture.strAwayTeamBadge}" alt="">
+        <p class="teamName">${fixture.strAwayTeam}</p>
+      </div>
+    </div>
+    </div>`});
+    
       fixtureContainer.innerHTML = html;
   });
   
