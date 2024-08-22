@@ -69,7 +69,7 @@ async function todayFixture() {
     return response.json();
   })
   .then(data => {
-    
+    console.log(data)
     html = '';
     data["events"].forEach((fixture) => {
       const months = ["","Jan", "Feb", "Mar", "Apr", "May", "Jun", "July", "Aug", "Sept","Oct", "Nov", "Dec"];
@@ -77,8 +77,22 @@ async function todayFixture() {
       const month = parseInt(((fixture.dateEvent).slice(5, 7)), 10);
       
       const day = (fixture.dateEvent).slice(8);
+      const league = fixture.strLeague;
+      console.log(league)
       
-      const sast = Number(fixture.strTime.slice(0, 2)) + 2;
+      let sast = Number(fixture.strTime.slice(0, 2));
+      
+      if(league === "English Premier League"){
+        sast = sast + 2
+      } else if (league === "German Bundesliga") {
+        sast = sast + 1
+      } else if (league === "Spanish La Liga") {
+        sast = sast + 1
+      } else if (league === "Italian Series A") {
+        sast = sast + 1
+      } else if (league === "French Ligue 1") {
+        sast = sast + 1
+      }
       
       if(fixture.intHomeScore === null){
         fixture.intHomeScore = "";
@@ -91,7 +105,7 @@ async function todayFixture() {
       <div class='outer-container'>
       <div class="fixture">
        <div class="event-date">
-      <p>${(fixture.strTime).slice(0, 5)}</p>
+      <p>${sast}${(fixture.strTime).slice(2, 5)}</p>
       <p class="month">${day} ${months[month]}</p>
     </div>
     <div class="container">
