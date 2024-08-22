@@ -81,6 +81,8 @@ async function todayFixture() {
       console.log(league)
       
       let sast = Number(fixture.strTime.slice(0, 2));
+      console.log(fixture.strTime)
+      console.log(sast)
       
       if(league === "English Premier League"){
         sast = sast + 2
@@ -93,6 +95,8 @@ async function todayFixture() {
       } else if (league === "French Ligue 1") {
         sast = sast + 2
       }
+      
+      console.log(sast)
       
       if(fixture.intHomeScore === null){
         fixture.intHomeScore = "";
