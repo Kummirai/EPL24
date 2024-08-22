@@ -85,13 +85,13 @@ async function todayFixture() {
       if(league === "English Premier League"){
         sast = sast + 2
       } else if (league === "German Bundesliga") {
-        sast = sast + 1
+        sast = sast + 2
       } else if (league === "Spanish La Liga") {
-        sast = sast + 1
-      } else if (league === "Italian Series A") {
-        sast = sast + 1
+        sast = sast + 2
+      } else if (league === "Italian Serie A") {
+        sast = sast + 2
       } else if (league === "French Ligue 1") {
-        sast = sast + 1
+        sast = sast + 2
       }
       
       if(fixture.intHomeScore === null){
