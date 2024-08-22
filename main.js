@@ -69,8 +69,19 @@ async function todayFixture() {
     return response.json();
   })
   .then(data => {
+    
     html = '';
     data["events"].forEach((fixture) => {
+      const months = ["","Jan", "Feb", "Mar", "Apr", "May", "Jun", "July", "Aug", "Sept","Oct", "Nov", "Dec"];
+      
+      const month = parseInt(((fixture.dateEvent).slice(5, 7)), 10);
+      
+      const day = (fixture.dateEvent).slice(8);
+      
+      const sast = Number(fixture.strTime.slice(0, 2)) + 2;
+      console.log(sast)
+      
+      
       if(fixture.intHomeScore === null){
         fixture.intHomeScore = "";
       };
@@ -80,6 +91,11 @@ async function todayFixture() {
       }
       html += `
       <div class='outer-container'>
+      <div class="fixture">
+       <div class="event-date">
+      <p>${sast}${(fixture.strTime).slice(2, 5)}</p>
+      <p class="month">${day} ${months[month]}</p>
+    </div>
     <div class="container">
       <div class="homeTeam team">
         <p class="teamName">${fixture.strHomeTeam}</p>
@@ -94,6 +110,7 @@ async function todayFixture() {
         <img src="${fixture.strAwayTeamBadge}" alt="">
         <p class="teamName">${fixture.strAwayTeam}</p>
       </div>
+    </div>
     </div>
     </div>`});
     
