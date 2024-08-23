@@ -78,11 +78,10 @@ async function todayFixture() {
       
       const day = (fixture.dateEvent).slice(8);
       const league = fixture.strLeague;
-      console.log(league)
       
       let sast = Number(fixture.strTime.slice(0, 2));
-      console.log(fixture.strTime)
-      console.log(sast)
+      
+      const today = (`${day} ${months[month]}`);
       
       if(league === "English Premier League"){
         sast = sast + 2
@@ -96,8 +95,6 @@ async function todayFixture() {
         sast = sast + 2
       }
       
-      console.log(sast)
-      
       if(fixture.intHomeScore === null){
         fixture.intHomeScore = "";
       };
@@ -105,6 +102,8 @@ async function todayFixture() {
       if (fixture.intAwayScore === null) {
         fixture.intAwayScore = ""
       }
+      
+      
       html += `
       <div class='outer-container'>
       <div class="fixture">
@@ -127,6 +126,7 @@ async function todayFixture() {
         <p class="teamName">${fixture.strAwayTeam}</p>
       </div>
     </div>
+    <a href="${fixture.strVideo}">Highlights</a>
     </div>
     </div>`});
     

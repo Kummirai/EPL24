@@ -118,6 +118,13 @@ img{
       align-items: center;
     }
     
+    a{
+      text-decoration: none;
+      color: aliceblue;
+      background-color: #181F62;
+      padding: 8px 28px;
+      border-radius: 4px;
+    }
     
     .homeTeam img{
       margin: 0 20px;
