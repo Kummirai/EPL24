@@ -4,6 +4,75 @@
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
 }
+
+body{
+  background-color: floralwhite; 
+}
+.header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  color: #21384c;
+}
+
+.header ul{
+  display: flex;
+ align-items: center;
+ list-style-type: none;
+}
+
+.header li{
+  margin: 0 20px;
+  padding-bottom: 4px;
+}
+
+.header .logo{
+  display: flex;
+  align-items: center;
+}
+
+.header span{
+  color: #fdc220;
+  font-size: 2rem;
+}
+
+.header li:hover{
+  border-bottom: 1px solid #21384c;
+}
+
+.main{
+  display: flex;
+  justify-content: space-between;
+}
+
+.main img{
+  width: 50%;
+  margin: 100px 20px 0 0;
+}
+
+.main-title{
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 100px 0 0 20px;
+  color: floralwhite;
+}
+
+.main-title .title{
+  color: #fdc220;
+  font-size: 2.4rem;
+}
+
+.main-title h2{
+  font-size:2.4rem;
+  color: #21384c;
+}
+
+.main-title p{
+  text-align: justify;
+}
 img{
       width: 32px;
       height: auto;
@@ -34,13 +103,6 @@ img{
       color: #B92828;
     }
     
-    .logo{
-      display: flex;
-      align-items: center;
-      background-color: ghostwhite;
-      border-radius: 8px;
-    }
-    
     .logo img{
       margin: 0 10px;
       width: 40px;
@@ -53,6 +115,7 @@ img{
       align-items: center;
       justify-content: center;
       padding: 18px;
+      background-color: white;
     }
   
     .container{
@@ -89,17 +152,17 @@ img{
       width: 20%;
       justify-content: space-around;
       /*background-color: #181F62;*/
-      border: 1px solid aliceblue;
+      border: 1px solid #21384c;
       align-items: center;
       border-radius: 5px;
-      color: #181F62;
+      color: #21384c;
       height: 60%;
     }
     
     .scoreLine p{
       font-weight: 700;
       font-size: 18px;
-      color: #181F62;
+      color: #21384c;
     }
     
     .awayTeam{
@@ -121,7 +184,7 @@ img{
     a{
       text-decoration: none;
       color: aliceblue;
-      background-color: #181F62;
+      background-color: #21384c;
       padding: 8px 28px;
       border-radius: 4px;
     }
@@ -141,12 +204,18 @@ img{
 }
 
 .results .scoreLine{
-  background-color: #B92828;
+  background-color: #21384c;
+}
+
+.fixtures-results{
+  color: #fdc220;
 }
 
 .select{
   display: flex;
-  flex-direction: column;
+  /*flex-direction: column;*/
+  align-items: center;
+  justify-content: space-around;
   margin: 18px 0 0 0;
 }
 
@@ -175,8 +244,9 @@ th, td{
 }
 
 tr>td{
-  background-color: ghostwhite;
-  color: #181F62;
+  /*border-bottom: 0.01px solid #21384c;*/
+  color: #21384c;
+  background-color: white;
   
 }
 
@@ -186,8 +256,8 @@ td{
 }
 
 th{
-  background-color: #181F62;
-  color: ghostwhite;
+  background-color: #21384c;
+  color: floralwhite;
 }
 
 tr:nth-child(even){
@@ -206,7 +276,9 @@ img{
 }
 .select{
   display: flex;
-  background-color: ghostwhite;
+  align-items: center;
+  justify-content: spa;
+  border: 0.1px solid #21384c;
   padding: 20px 30px 30px 30px;
   width: 95%;
 }
@@ -215,12 +287,12 @@ select {
     appearance: none; /* Remove default arrow */
     -webkit-appearance: none; /* Remove default arrow in Safari */
     -moz-appearance: none; /* Remove default arrow in Firefox */
-    background-color: white;
-    border: none;
+    background-color: floralwhite;
+    border: 0.1px solid #21384c;
     border-radius: 4px;
     padding: 10px;
     font-size: 16px;
-    color: #181F62;
+    color: #21384c;
     width: 200px;
     cursor: pointer;
     background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMCIgaGVpZ2h0PSI2Ij4KICA8cGF0aCBkPSJNIDAgMCAwIDIgNSA2IDAgNiIgZmlsbD0iIzMzMyIvPgo8L3N2Zz4=');
@@ -236,7 +308,7 @@ select:focus {
 }
 
 label{
-  color: #181F62;
+  color : #21384c;
   font-weight: bold;
 }
 
