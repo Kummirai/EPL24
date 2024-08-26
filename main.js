@@ -9,6 +9,7 @@ const container  = document.querySelector('.container');
 const homeScore  = document.querySelector('.home-score');
 const awayScore  = document.querySelector('.away-score');
 const fixtureContainer  = document.querySelector('.fixture-container');
+const iframe = document.querySelector(".iframe");
 
 async function eplStandings() {
   const leagueValue = league.value;
@@ -128,9 +129,12 @@ async function todayFixture() {
     </div>
     <a href="${fixture.strVideo}">Highlights</a>
     </div>
-    </div>`});
-    
+    </div>`
+      
       fixtureContainer.innerHTML = html;
+      
+    });
+
   });
   
 }
@@ -142,3 +146,5 @@ eplStandings("2024-2025")
 
 leagueId.addEventListener('change', todayFixture);
 selectMatchday.addEventListener('change', todayFixture);
+
+
