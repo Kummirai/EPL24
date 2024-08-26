@@ -14,6 +14,7 @@ body{
   justify-content: space-between;
   padding: 20px;
   color: #21384c;
+  background-color: white;
 }
 
 .header ul{
@@ -42,8 +43,12 @@ body{
 }
 
 .main{
+  width: 100%;
+  height: 90vh;
   display: flex;
   justify-content: space-between;
+  background-image: url(/063213E9-60C1-4CBB-87A2-7E1948EC8701.jpeg);
+  background-size: cover;
 }
 
 .main img{
